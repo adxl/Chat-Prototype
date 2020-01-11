@@ -2,14 +2,17 @@ package com.adxl.chat;
 
 public class Response
 {
+    private String username;
     private String content;
 
     public Response()
     {
     }
 
-    public Response(String content)
+
+    public Response(String username, String content)
     {
+        this.username=username;
         this.content=content;
     }
 
@@ -18,4 +21,8 @@ public class Response
         return content;
     }
 
+    public String getUsername()
+    {
+        return username;
+    }
 }

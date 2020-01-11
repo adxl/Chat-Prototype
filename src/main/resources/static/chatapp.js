@@ -8,7 +8,7 @@ function connect() {
         setConnected(true)
         console.log('Connected: ' + frame);
         stompClient.subscribe('/feed/response', function (message) {
-            showMessage(JSON.parse(message.body).content);
+            showMessage(JSON.parse(message.body).username, JSON.parse(message.body).content);
         });
     });
 }
@@ -29,32 +29,54 @@ function setConnected(connected) {
         $("#tableContainer").show();
         $("#messageBar").show();
         $("#disconnect").show();
-    }
-    else {
+    } else {
         $("#messageBar").hide();
         $("#tableContainer").hide();
         $("#disconnect").hide();
+        $("#name").show();
+        $("#name").val('');
+        $("#userInfos").hide();
     }
     $("#messages").html("");
 }
 
 function sendMessage() {
-    stompClient.send('/app/chatapp', {}, JSON.stringify({'text': $("#text").val()}));
+    //console.log($("#name").val())  --OK!
+    stompClient.send('/app/chatapp', {}, JSON.stringify({'username': $("#name").val(),'text': $("#text").val()}));
 
 }
 
-function showMessage(message) {
+function showMessage(username, message) {
+    //console.log(message) --OK
     var date = new Date();
-    var time = ('0'+date.getHours()).slice(-2) + ":" + ('0'+date.getMinutes()).slice(-2) /* + ":" + ('0'+date.getSeconds()).slice(-2)*/;
-    $("#messages").append("<tr><td>" + "<span style='color: #6c757d'>"+time+"</span>" + " : " + message + "</td></tr>");
-    document.getElementById('text').value='';
+    var time = ('0' + date.getHours()).slice(-2) + ":" + ('0' + date.getMinutes()).slice(-2) /* + ":" + ('0'+date.getSeconds()).slice(-2)*/;
+    $("#messages").append("<tr><td>" + "<span style='color: #6c757d'>" + time + "</span>" + "-" + "<span style='color: #007bff'>"+username+"</span>" + " : " + message + "</td></tr>");
+    $("#text").val('');
+}
+
+function validateName() {
+    var name = $("#name").val();
+    if (name) {
+        //$("#name").val('');
+        $("#name").hide()
+        $("#userInfos").text("You are logged on as "+name);
+        $("#userInfos").show();
+        connect(name);
+
+    }
 }
 
 $(function () {
     $("form").on('submit', function (e) {
         e.preventDefault();
     });
-    $( "#login" ).click(function() { connect(); });
-    $( "#disconnect" ).click(function() { disconnect(); });
-    $( "#send" ).click(function() {sendMessage(); });
+    $("#login").click(function () {
+        validateName()
+    });
+    $("#disconnect").click(function () {
+        disconnect();
+    });
+    $("#send").click(function () {
+        sendMessage();
+    });
 });

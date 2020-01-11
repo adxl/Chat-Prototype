@@ -14,7 +14,7 @@ public class ResponseController
     @SendTo("/feed/response")
     public Response respond(Message message)
     {
-        return new Response(HtmlUtils.htmlEscape(message.getText()));
+        return new Response(HtmlUtils.htmlEscape(message.getUsername()),HtmlUtils.htmlEscape(message.getText()));
     }
 
 }
