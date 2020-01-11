@@ -21,7 +21,7 @@ function sendMessage() {
 function showMessage(message) {
     var date = new Date();
     var time = ('0'+date.getHours()).slice(-2) + ":" + ('0'+date.getMinutes()).slice(-2) + ":" + ('0'+date.getSeconds()).slice(-2);
-    $("#messages").append("<tr><td>" + time + " : " + message + "</td></tr>");
+    $("#messages").append("<tr><td>" + "<span style='color: #6c757d'>"+time+"</span>" + " : " + message + "</td></tr>");
     document.getElementById('text').value='';
 }
 
