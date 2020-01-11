@@ -4,15 +4,15 @@ import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.util.HtmlUtils;
-;
+
 
 @Controller
 public class ResponseController
 {
 
-    @MessageMapping("/chat")
+    @MessageMapping("/chatapp")
     @SendTo("/feed/response")
-    public Response respond(Message message) throws Exception
+    public Response respond(Message message)
     {
         return new Response(HtmlUtils.htmlEscape(message.getText()));
     }

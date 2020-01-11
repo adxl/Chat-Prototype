@@ -1,14 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
     <script src="/webjars/jquery/jquery.min.js"></script>
     <script src="/webjars/sockjs-client/sockjs.min.js"></script>
     <script src="/webjars/stomp-websocket/stomp.min.js"></script>
     <script src="/chatapp.js"></script>
     <title>Chat</title>
+    <script>
+        window.onload = connect()
+
+
+    </script>
 </head>
 <body>
-
+<div>
+    <form>
+        <input type="text" id="text" placeholder="Type a message...">
+        <button id="send" type="submit">Send</button>
+    </form>
+</div>
+<div>
+    <div>
+        <table id="conversation">
+            <thead>
+            <tr>
+                <th>----------------------</th>
+            </tr>
+            </thead>
+            <tbody id="messages">
+            </tbody>
+        </table>
+    </div>
+</div>
 </body>
 </html>
