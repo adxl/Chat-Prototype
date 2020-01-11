@@ -8,12 +8,21 @@
     <script src="/chatapp.js"></script>
     <title>Chat</title>
     <script>
-        window.onload = connect()
-
-
+        $(document).ready(
+            function () {
+                $("#messageBar").hide();
+                $("#tableContainer").hide();
+                }
+        );
     </script>
 </head>
 <body>
+<div id="signContainer">
+    <form>
+        <button id="login" type="submit">Login</button>
+        <button id="disconnect" type="submit" disabled="disabled" hidden="hidden">Disconnect</button>
+    </form>
+</div>
 <div id="messageBar">
     <form>
         <input type="text" id="text" autocomplete="off" placeholder="Type a message...">
