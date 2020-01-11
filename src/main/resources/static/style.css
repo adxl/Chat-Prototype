@@ -1,0 +1,17 @@
+#messageBar {
+    text-align: center;
+    border-bottom: solid gray 1px;
+    padding-bottom: 10px
+}
+
+#tableContainer {
+    text-align: center;
+    text-align: left;
+    background-color: aliceblue;
+    margin: 0 33%;
+    color: #343a40;
+}
+
+#conversation {
+    width: 100%;
+}

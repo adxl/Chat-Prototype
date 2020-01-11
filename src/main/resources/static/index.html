@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="style.css" type="text/css" rel="stylesheet">
     <script src="/webjars/jquery/jquery.min.js"></script>
     <script src="/webjars/sockjs-client/sockjs.min.js"></script>
     <script src="/webjars/stomp-websocket/stomp.min.js"></script>
@@ -13,19 +14,15 @@
     </script>
 </head>
 <body>
-<div style="text-align: center; border-bottom: solid gray 1px; padding-bottom: 10px">
+<div id="messageBar">
     <form>
         <input type="text" id="text" autocomplete="off" placeholder="Type a message...">
         <button id="send" type="submit">Send</button>
     </form>
 </div>
-<div style="text-align: center;
-     text-align: left;
-     background-color: aliceblue;
-     margin: 0 33%;
-     color: #343a40;">
+<div id="tableContainer">
     <div>
-        <table id="conversation" style="width: 100%">
+        <table id="conversation">
             <thead>
             <tr>
                 <th></th>
