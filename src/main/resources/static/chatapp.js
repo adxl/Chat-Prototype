@@ -28,7 +28,9 @@ function setConnected(connected) {
     if (connected) {
         $("#tableContainer").show();
         $("#messageBar").show();
+        $("#messageBar").focus();
         $("#disconnect").show();
+
     } else {
         $("#messageBar").hide();
         $("#tableContainer").hide();
@@ -61,8 +63,8 @@ function showMessage(username, message) {
 }
 
 function playNotification() {
-    //var notif = $("#notif");
-    var notif = document.getElementById("notif");
+    var notif = $("#notif")[0];
+    //var notif = document.getElementById("notif");
     notif.play();
 }
 
