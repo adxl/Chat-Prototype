@@ -43,7 +43,7 @@ function setConnected(connected) {
 
 function sendMessage() {
     //console.log($("#name").val())  --OK!
-    stompClient.send('/app/chatapp', {}, JSON.stringify({'username': $("#name").val(),'text': $("#text").val()}));
+    stompClient.send('/app/messaging', {}, JSON.stringify({'username': $("#name").val(),'text': $("#text").val()}));
 
 }
 

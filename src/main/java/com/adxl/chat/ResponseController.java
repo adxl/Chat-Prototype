@@ -10,11 +10,18 @@ import org.springframework.web.util.HtmlUtils;
 public class ResponseController
 {
 
-    @MessageMapping("/chatapp")
+    @MessageMapping("/messaging")
     @SendTo("/feed/response")
-    public Response respond(Message message)
+    public Response getResponse(Message message)
     {
         return new Response(HtmlUtils.htmlEscape(message.getUsername()),HtmlUtils.htmlEscape(message.getText()));
+    }
+
+    @MessageMapping("/status")
+    @SendTo("/feed/status")
+    public Response getStatus(Message message)
+    {
+        return new Response(HtmlUtils.htmlEscape(message.getUsername()));
     }
 
 }

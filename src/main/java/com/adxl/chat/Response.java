@@ -9,6 +9,10 @@ public class Response
     {
     }
 
+    public Response(String username)
+    {
+        this.username=username;
+    }
 
     public Response(String username, String content)
     {
