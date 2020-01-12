@@ -37,7 +37,6 @@ function setConnected(connected) {
         $("#name").val('');
         $("#userInfos").hide();
     }
-    $("#messages").html("");
 }
 
 function sendMessage() {
