@@ -47,10 +47,16 @@ function sendMessage() {
 }
 
 function showMessage(username, message) {
-    //console.log(message) --OK
+    //console.log(username+">>>"+$("#name").val()) //--OK
+    var name = $("#name").val();
     var date = new Date();
     var time = ('0' + date.getHours()).slice(-2) + ":" + ('0' + date.getMinutes()).slice(-2) /* + ":" + ('0'+date.getSeconds()).slice(-2)*/;
-    $("#messages").append("<tr><td>" + "<span style='color: #6c757d'>" + time + "</span>" + "-" + "<span style='color: #007bff'>"+username+"</span>" + " : " + message + "</td></tr>");
+    if (username == name)
+    {
+        $("#messages").append("<tr><td>" + "<span style='color: #6c757d'>" + time + "</span>" + "-" + "<span style='color: #dc3545'>You</span>" + ": " + message + "</td></tr>");
+    }else{
+        $("#messages").append("<tr><td>" + "<span style='color: #6c757d'>" + time + "</span>" + "-" + "<span style='color: #007bff'>"+username+"</span>" + ": " + message + "</td></tr>");
+    }
     $("#text").val('');
 }
 
