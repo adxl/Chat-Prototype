@@ -55,8 +55,15 @@ function showMessage(username, message) {
         $("#messages").append("<tr><td>" + "<span style='color: #6c757d'>" + time + "</span>" + "-" + "<span style='color: #dc3545'>You</span>" + ": " + message + "</td></tr>");
     }else{
         $("#messages").append("<tr><td>" + "<span style='color: #6c757d'>" + time + "</span>" + "-" + "<span style='color: #007bff'>"+username+"</span>" + ": " + message + "</td></tr>");
+        playNotification();
     }
     $("#text").val('');
+}
+
+function playNotification() {
+    //var notif = $("#notif");
+    var notif = document.getElementById("notif");
+    notif.play();
 }
 
 function validateName() {
