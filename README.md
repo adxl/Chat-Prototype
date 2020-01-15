@@ -6,7 +6,15 @@ A simple Spring Boot chat prototype using STOMP over WebSocket
 ~~~
 git clone https://github.com/adxl/Chat-Prototype.git
 ~~~
-2. Run with :
+2.1. Run with Maven:
+~~~
+./mvnw spring-boot:run
+~~~
+2.2. OR build with:
+~~~
+./mvnw clean package
+~~~
+then run:
 ~~~
 java -jar target/chat-0.0.1-SNAPSHOT.jar
 ~~~
